@@ -6,8 +6,8 @@
 #endif
 
 
-double st_pow(double base, int exp);
-double st_sqrt(double x);
+int st_pow(int base, int exp);
+double st_sqrt(int x);
 
 
 #ifdef __cplusplus
