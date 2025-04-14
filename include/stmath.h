@@ -27,6 +27,9 @@
 
 st_real st_pow(st_real base, int exp);
 st_real st_sqrt(st_real x);
+st_real st_abs(st_real a);
+int st_min(int a, int b);
+int st_max(int a, int b);
 
 
 #ifdef __cplusplus
