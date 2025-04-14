@@ -1,15 +1,20 @@
 #include "stmath.h"
 
-/*st_real st_pow(st_real base, int exp)
+st_real st_pow(st_real base, int exp)
 {
+  if (exp==0) return 1;
   st_real result=1.0;
-  for (int i=0; i<exp; ++i) {
-    result*=base; 
-  }    
-  return result;
-   
+  for (int i=0; i<st_abs(exp); ++i) {
+    result*=base;
+  }
+  if (exp<0) {
+    return 1/result;
+  }
+  else {
+    return result;
+  } 
 }
-*/
+
 st_real st_sqrt(st_real x) 
 {
   if (x <= 0) return 0;
