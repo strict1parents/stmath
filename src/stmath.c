@@ -12,8 +12,11 @@
 */
 st_real st_sqrt(st_real x) 
 {
+  if (x <= 0) return 0;
+  int i=0;
+  int maxiter=100;
   st_real result=x/2;
-  while (st_abs(st_pow(result,2)-x)>st_epsilon) {
+  while (st_abs(st_pow(result,2)-x)>st_epsilon && i++<maxiter) {
     result=(result+(x/result))/2;  
   } 
   return result;
