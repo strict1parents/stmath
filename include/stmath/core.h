@@ -21,7 +21,7 @@ st_real      st_min(st_real a, st_real b);
 st_real      st_max(st_real a, st_real b);
 int          st_fact(uint32_t x);
 int          st_sign(st_real x);
-
+void         st_round(st_real *x);
 
 
 
