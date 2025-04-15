@@ -19,7 +19,7 @@ st_real      st_sqrt(st_real x);
 st_real      st_abs(st_real a);
 st_real      st_min(st_real a, st_real b);
 st_real      st_max(st_real a, st_real b);
-uint32_t     st_fact(uint32_t x);
+int          st_fact(uint32_t x);
 
 #ifdef __cplusplus
 }
