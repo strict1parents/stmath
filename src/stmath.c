@@ -41,3 +41,14 @@ st_real st_max(st_real a, st_real b)
 {
   return a>b? a:b;
 }
+
+int st_fact(uint32_t x)
+{
+  if (x==0) return 1;
+  if x>12 return -1;
+  uint32_t result=1;
+  for (uint32_t i=x; i>0; --i) {
+    result*=i;
+  }
+  return result;
+}
