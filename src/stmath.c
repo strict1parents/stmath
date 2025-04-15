@@ -32,12 +32,12 @@ st_real st_abs(st_real a)
   return (a<0)? -a:a;
 }
 
-int st_min(int a, int b) 
+st_real st_min(st_real a, st_real b) 
 {
   return a<b? a:b;
 }
 
-int st_max(int a, int b) 
+st_real st_max(st_real a, st_real b) 
 {
   return a>b? a:b;
 }
