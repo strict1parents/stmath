@@ -52,3 +52,8 @@ int st_fact(uint32_t x)
   }
   return result;
 }
+
+int st_sign(st_real x) 
+{
+  return (x<0)? -1: (st_abs(x)<st_epsilon)? 0:1;
+}
