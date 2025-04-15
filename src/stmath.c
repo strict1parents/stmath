@@ -57,3 +57,9 @@ int st_sign(st_real x)
 {
   return (x<0)? -1: (st_abs(x)<st_epsilon)? 0:1;
 }
+
+void st_round(st_real *x)
+{
+  if !x return;
+  *x=(st_real)((int)(*x+(*x>=0?0.5:-0.5)));
+}
