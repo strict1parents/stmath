@@ -17,7 +17,7 @@ st_real st_sqrt(st_real x);
 st_real st_abs(st_real a);
 st_real st_min(st_real a, st_real b);
 st_real st_max(st_real a, st_real b);
-
+int st_fact(int x);
 
 #ifdef __cplusplus
 }
