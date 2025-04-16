@@ -63,3 +63,8 @@ void st_round(st_real *x)
   if !x return;
   *x=(st_real)((int)(*x+(*x>=0?0.5:-0.5)));
 }
+
+int st_mod(int a, int b) 
+{
+  return (b==0)? 0:(a%b);
+}
