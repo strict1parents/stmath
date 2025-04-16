@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(stmath C)
 
 
-set(CMAKE_C_STANDART 99)
+set(CMAKE_C_STANDART 11)
 
 include_directories(include)
 
