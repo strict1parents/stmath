@@ -68,6 +68,7 @@ st_real                     st_sqrt_r(st_real x);
 int                         st_fact_i(uint32_t x);
 st_real                     st_fact_r(st_real x);
 void                        st_round(st_real *x);
+st_real                     st_exp(int x);
 
 
 #ifdef __cplusplus
