@@ -49,6 +49,34 @@ st_real st_sqrt_r(st_real x)
   return result;
 }
 
+int st_cbrt_i(int x)
+{
+  if (x==0) return 0;
+  int i=0;
+  int maxiter=100;
+  int prev=0;
+  int result=x/3;
+  while (result!=prev && i++<maxiter) {
+    prev=result;
+    result=(2*result+x/(result*result))/3;
+  } 
+  return result;
+}
+
+st_real st_cbrt_r(st_real x) 
+{
+  if (x==0.0) return 0.0;
+  int i=0;
+  int maxiter=100;
+  st_real result=x/3.0;
+  st_real prev=0.0;
+  if (st_abs(result)<st_epsilon) result=1.0;
+  while (st_abs(result-prev)>st_epsilon && i++<maxiter) {
+    prev=result;
+    result=(2.0*result+x/(result*result))/3.0;
+  }
+  return result;
+}
 
 int st_fact_i(uint32_t x)
 {
