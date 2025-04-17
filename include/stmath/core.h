@@ -61,7 +61,7 @@ static inline int st_mod(int a, int b)
       default: st_fact_r \
 )(x)
 
-int                         st_pow_i(int base, int exp);
+st_real                         st_pow_i(int base, int exp);
 st_real                     st_pow_r(st_real base, int exp);
 int                         st_sqrt_i(int x);
 st_real                     st_sqrt_r(st_real x);
