@@ -43,10 +43,30 @@ static inline int st_mod(int a, int b)
   return (b==0)? 0:(a%b);
 }
 
+#define st_pow(x,y) _Generic((x), \
+      int: st_pow_i, \
+      st_real:  st_pow_r, \
+      default: st_pow_r \
+)(x,y)  
 
-st_real                     st_pow(st_real base, int exp);
-st_real                     st_sqrt(st_real x);
-int                         st_fact(uint32_t x);
+#define st_sqrt(x) _Generic((x), \
+      int: st_sqrt_i, \
+      st_real: st_sqrt_r, \
+      default: st_sqrt_r \
+)(x)
+
+#define st_fact(x) _Generic((x), \
+      uint32_t: st_fact_i, \
+      st_real: st_fact_r, \
+      default: st_fact_r \
+)(x)
+
+int                         st_pow_i(int base, int exp);
+st_real                     st_pow_r(st_real base, int exp);
+int                         st_sqrt_i(int x);
+st_real                     st_sqrt_r(st_real x);
+int                         st_fact_i(uint32_t x);
+st_real                     st_fact_r(st_real x);
 void                        st_round(st_real *x);
 
 
