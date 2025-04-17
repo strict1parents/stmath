@@ -1,18 +1,25 @@
 #include "stmath.h"
 
-st_real st_pow(st_real base, int exp)
+
+st_real st_pow_i(int base, int exp)
+{
+  if (exp==0) return 1.0;
+  st_real result = 1.0;
+  for (int i=0; i<st_abs(exp); ++i) {
+    result*=base;
+  }
+  return (exp<0)? 1/result: result;
+}
+
+
+st_real st_pow_r(st_real base, int exp)
 {
   if (exp==0) return 1;
   st_real result=1.0;
   for (int i=0; i<st_abs(exp); ++i) {
     result*=base;
   }
-  if (exp<0) {
-    return 1/result;
-  }
-  else {
-    return result;
-  } 
+  return (exp<0)? 1/result:result; 
 }
 
 
@@ -22,10 +29,15 @@ int st_sqrt_i(int x)
   int i=0;
   int maxiter=100;
   int result=x/2;
-  while (
+  int prev=0;
+  while (result!=prev && i++<maxiter) {
+    prev=result;
+    result=(result+x/result)/2;
+  }
+  return result;
 }
 
-st_real st_sqrt(st_real x) 
+st_real st_sqrt_r(st_real x) 
 {
   if (x <= 0) return 0;
   int i=0;
@@ -49,10 +61,10 @@ int st_fact_i(uint32_t x)
   return result;
 }
 
-st_real st_fact_r(st_real x)
+/*st_real st_fact_r(st_real x)
 {
    
-}
+}*/
 
 void st_round(st_real *x)
 {
