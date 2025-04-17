@@ -61,6 +61,12 @@ static inline int st_mod(int a, int b)
       default: st_fact_r \
 )(x)
 
+#define st_cbrt(x) _Generic((x), \
+      int: st_cbrt_i, \
+      st_real: st_cbrt_r, \
+      default: st_cbrt_r \
+)(x)
+
 st_real                     st_pow_i(int base, int exp);
 st_real                     st_pow_r(st_real base, int exp);
 int                         st_sqrt_i(int x);
@@ -69,6 +75,8 @@ int                         st_fact_i(uint32_t x);
 st_real                     st_fact_r(st_real x);
 void                        st_round(st_real *x);
 st_real                     st_exp(int x);
+int                         st_cbrt_i(int x);
+st_real                     st_cbrt_r(st_real x);
 
 
 #ifdef __cplusplus
