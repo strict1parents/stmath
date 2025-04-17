@@ -12,5 +12,8 @@
   #define st_epsilon    1e-10
 #endif
 
+#ifndef st_inf
+  #define st_inf (1.0/0.0)
+#endif
 
 #endif
