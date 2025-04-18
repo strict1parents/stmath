@@ -138,3 +138,24 @@ st_real st_cos(st_real x)
   }
   return result;
 }
+
+st_real st_tan(st_real x)
+{
+  while (x>st_pi) x-=2*st_pi;
+  while (x<-st_pi) x+=2*st_pi;
+  const st_real coeffs[]= {
+    1.0,
+    1.0/3.0,
+    2.0/15.0,
+    17.0/315.0,
+    62.0/2835.0
+  };
+  st_real result=0.0;
+  st_real x_pow=x;
+  for (int i=0; i<5; ++i) {
+    result+=coeffs[i]*x_pow;
+    x_pow*=x*x;
+  }
+  return result;
+
+}
