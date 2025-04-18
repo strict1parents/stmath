@@ -166,3 +166,13 @@ st_real st_cot(st_real x)
   if (st_abs(t)<st_epsilon) return st_inf; 
   return 1.0/t;
 }
+
+int st_cpsign_i(int x, int y)
+{
+  return (y<0)? x*(-1): x;
+}
+
+st_real st_cpsign_r(st_real x, st_real y)
+{
+  return (y<0.0)? x*(-1.0):x;
+}
