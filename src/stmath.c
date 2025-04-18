@@ -109,3 +109,17 @@ st_real st_exp(int x)
   return result;
 }
 
+st_real st_sin(st_real x)
+{
+  while (x>st_pi) x-= 2*st_pi;
+  while (x<-st_pi) x+= 2*st_pi;
+  st_real temp=x;
+  st_real result=0;
+  int sign = 1;
+  for (int i=1; i<13; i+=2) {
+    temp*=x*x/((i-1)*i);
+    result+=sign*temp;   
+    sign*=-1;
+  }
+  return result;
+}
