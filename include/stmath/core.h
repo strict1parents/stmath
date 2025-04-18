@@ -48,6 +48,11 @@ static inline bool st_inf(st_real x)
   return x==st_inf || x==-(st_inf);
 }
 
+static inline bool st_is_nan(st_real x)
+{
+  return x!=x;
+}
+
 #define st_pow(x,y) _Generic((x), \
       int: st_pow_i, \
       st_real:  st_pow_r, \
