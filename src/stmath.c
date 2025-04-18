@@ -123,3 +123,18 @@ st_real st_sin(st_real x)
   }
   return result;
 }
+
+st_real st_cos(st_real x)
+{
+  while (x>st_pi) x-= 2*st_pi;
+  while (x<-st_pi) x+= 2*st_pi;
+  st_real temp=1.0;
+  st_real result=1.0;
+  int sign = 1;
+  for (int i=2; i<12; i+=2) {
+    temp*=x*x/((i-1)*i);
+    result+=sign*temp;
+    sign*=-1;   
+  }
+  return result;
+}
