@@ -90,7 +90,7 @@ st_real                     st_cbrt_r(st_real x);
 st_real                     st_sin(st_real x);
 st_real                     st_cos(st_real x);
 st_real                     st_tan(st_real x);
-
+st_real                     st_cot(st_real x);
 
 
 #ifdef __cplusplus
