@@ -77,6 +77,12 @@ static inline bool st_is_nan(st_real x)
       default: st_cbrt_r \
 )(x)
 
+#define st_cpsign(x,y) _Generic((x), \
+      int: st_cpsign_i, \
+      st_real: st_cpsign_r, \
+      default: st_cpsign_r \
+)(x)
+
 st_real                     st_pow_i(int base, int exp);
 st_real                     st_pow_r(st_real base, int exp);
 int                         st_sqrt_i(int x);
@@ -91,7 +97,8 @@ st_real                     st_sin(st_real x);
 st_real                     st_cos(st_real x);
 st_real                     st_tan(st_real x);
 st_real                     st_cot(st_real x);
-
+int                         st_cpsign_i(int x, int y);
+st_real                     st_cpsign_r(st_real x, st_real y);
 
 #ifdef __cplusplus
 }
