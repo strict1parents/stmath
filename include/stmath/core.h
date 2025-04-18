@@ -88,7 +88,7 @@ st_real                     st_exp(int x);
 int                         st_cbrt_i(int x);
 st_real                     st_cbrt_r(st_real x);
 st_real                     st_sin(st_real x);
-
+st_real                     st_cos(st_real x);
 
 
 
