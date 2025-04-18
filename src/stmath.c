@@ -159,3 +159,10 @@ st_real st_tan(st_real x)
   return result;
 
 }
+
+st_real st_cot(st_real x)
+{
+  st_real t = st_tan(x);
+  if (st_abs(t)<st_epsilon) return st_inf; 
+  return 1.0/t;
+}
