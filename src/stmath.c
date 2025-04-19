@@ -271,3 +271,8 @@ st_real st_log10(st_real x)
 {
   return st_ln(x)/st_ln10;  
 }
+
+st_real st_log(int base, st_real x)
+{
+  return st_ln(x)/st_ln((st_real)base);
+}
