@@ -87,6 +87,7 @@ st_real                     st_pow_i(int base, int exp);
 st_real                     st_pow_r(st_real base, int exp);
 int                         st_sqrt_i(int x);
 st_real                     st_sqrt_r(st_real x);
+st_real                     st_rt(st_real x, int power);
 int                         st_fact_i(uint32_t x);
 st_real                     st_fact_r(st_real x);
 void                        st_round(st_real *x);
