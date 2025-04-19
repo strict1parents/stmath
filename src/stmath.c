@@ -210,3 +210,8 @@ st_real st_degrees(st_real x)
 {
   return x*(180.0/st_pi);
 }
+
+st_real st_radians(st_real x)
+{
+  return x*(st_pi/180.0);
+}
