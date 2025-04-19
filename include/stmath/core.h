@@ -102,7 +102,7 @@ st_real                     st_cpsign_r(st_real x, st_real y);
 st_real                     st_gamma(st_real x);
 st_real                     st_degrees(st_real x);
 st_real                     st_radians(st_real x);
-st_real                     st_log2(st_real);
+st_real                     st_log2(st_real x);
 
 
 
