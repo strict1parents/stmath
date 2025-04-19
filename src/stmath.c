@@ -39,7 +39,7 @@ int st_sqrt_i(int x)
 
 st_real st_sqrt_r(st_real x) 
 {
-  if (x <= 0) return 0;
+  if (x <= 0) return -1;
   int i=0;
   int maxiter=100;
   st_real result=x/2;
@@ -49,6 +49,10 @@ st_real st_sqrt_r(st_real x)
   return result;
 }
 
+st_real st_rt(st_real x, int power)
+{
+  if (x<=0) return -1;
+}
 int st_cbrt_i(int x)
 {
   if (x==0) return 0;
@@ -214,4 +218,9 @@ st_real st_degrees(st_real x)
 st_real st_radians(st_real x)
 {
   return x*(st_pi/180.0);
+}
+
+st_real st_log2(st_real x)
+{
+  
 }
