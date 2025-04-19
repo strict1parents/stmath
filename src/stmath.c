@@ -3,8 +3,8 @@
 
 st_real st_pow_i(int base, int exp)
 {
-  if (exp==0) return 1.0;
-  st_real result = 1.0;
+  if (exp==0) return 1;
+  st_real result = 1;
   for (int i=0; i<st_abs(exp); ++i) {
     result*=base;
   }
@@ -14,7 +14,7 @@ st_real st_pow_i(int base, int exp)
 
 st_real st_pow_r(st_real base, int exp)
 {
-  if (exp==0) return 1;
+  if (exp==0) return 1.0; 
   st_real result=1.0;
   for (int i=0; i<st_abs(exp); ++i) {
     result*=base;
