@@ -105,6 +105,7 @@ st_real                     st_degrees(st_real x);
 st_real                     st_radians(st_real x);
 st_real                     st_log2(st_real x);
 st_real                     st_ln(st_real x);
+st_real                     st_log10(st_real x);
 
 
 
