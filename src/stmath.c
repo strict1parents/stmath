@@ -240,3 +240,29 @@ st_real st_log2(st_real x)
 {
   
 }
+
+st_real st_ln(st_real x)
+{
+  if (x<=0.0) return -1.0;
+  if (x==1.0) return 0.0;
+  if (x==st_e) return 1.0;
+  int k=0;
+  while (x>2.0) {
+    x/=2.0;
+    k++;
+  }
+  while (x<0.5) {
+    x*=2.0;
+    k--;
+  }
+  st_real t=(x-1)/(x+1);
+  st_real result=0.0;
+  st_real t2=t*t;
+  for (int i=1; i<30; i+=2) {
+    result+=t/n;
+    t*=t2; 
+  } 
+  result*=2;
+  result+=k*st_ln2;
+  return result;
+}
