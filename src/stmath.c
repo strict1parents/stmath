@@ -266,3 +266,8 @@ st_real st_ln(st_real x)
   result+=k*st_ln2;
   return result;
 }
+
+st_real st_log10(st_real x)
+{
+  return st_ln(x)/st_ln10;  
+}
