@@ -114,8 +114,8 @@ st_real st_exp(int x)
 
 st_real st_sin(st_real x)
 {
-  while (x>st_pi) x-= 2*st_pi;
-  while (x<-st_pi) x+= 2*st_pi;
+  while (x>st_pi) x-= st_twoPI;
+  while (x<-st_pi) x+= st_twoPI;
   st_real temp=x;
   st_real result=0;
   int sign = 1;
@@ -129,8 +129,8 @@ st_real st_sin(st_real x)
 
 st_real st_cos(st_real x)
 {
-  while (x>st_pi) x-= 2*st_pi;
-  while (x<-st_pi) x+= 2*st_pi;
+  while (x>st_pi) x-= st_twoPI;
+  while (x<-st_pi) x+= st_twoPI;
   st_real temp=1.0;
   st_real result=1.0;
   int sign = 1;
@@ -144,8 +144,8 @@ st_real st_cos(st_real x)
 
 st_real st_tan(st_real x)
 {
-  while (x>st_pi) x-=2*st_pi;
-  while (x<-st_pi) x+=2*st_pi;
+  while (x>st_pi) x-=st_twoPI;
+  while (x<-st_pi) x+=st_twoPI;
   const st_real coeffs[]= {
     1.0,
     1.0/3.0,
@@ -202,7 +202,7 @@ st_real st_gamma(st_real x)
     a+=p[i]/(x+i);
   }
   st_real t=x+g+0.5;
-  return st_sqrt(2.0*st_pi) * st_pow(t,x+0.5) * st_exp(-t) *a;
+  return st_sqrt(st_twoPI) * st_pow(t,x+0.5) * st_exp(-t) *a;
 
 }
 
