@@ -100,6 +100,8 @@ st_real                     st_cot(st_real x);
 int                         st_cpsign_i(int x, int y);
 st_real                     st_cpsign_r(st_real x, st_real y);
 st_real                     st_gamma(st_real x);
+st_real                     st_degrees(st_real x);
+
 
 
 #ifdef __cplusplus
