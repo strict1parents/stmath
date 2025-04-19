@@ -206,3 +206,7 @@ st_real st_gamma(st_real x)
 
 }
 
+st_real st_degrees(st_real x)
+{
+  return x*(180.0/st_pi);
+}
