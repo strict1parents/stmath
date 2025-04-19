@@ -39,7 +39,7 @@ int st_sqrt_i(int x)
 
 st_real st_sqrt_r(st_real x) 
 {
-  if (x <= 0) return -1;
+  if (x <= 0) return -1.0;
   int i=0;
   int maxiter=100;
   st_real result=x/2;
@@ -51,11 +51,25 @@ st_real st_sqrt_r(st_real x)
 
 st_real st_rt(st_real x, int power)
 {
-  if (x<=0) return -1;
+  if (x==0) return 0.0;
+  int negative = x<0.0;
+  negative? x*(-1): x=x; 
+  int i=0;
+  int maxiter=100;
+  st_real result=x/power;
+  if (st_abs(result)<st_epsilon)  result=1.0;
+  while (st_abs(st_pow(result,power)-x)>st_epsilon && i++<maxiter) {
+    result=(1/power)*((power-1)*result+(x/st_pow(result,power-1))/power;
+  }
+  if (negative && power%2==1) result*=-1;
+  return result;
 }
+
 int st_cbrt_i(int x)
 {
   if (x==0) return 0;
+  int negative = x<0;
+  negative? x*(-1): x=x;
   int i=0;
   int maxiter=100;
   int prev=0;
@@ -64,12 +78,14 @@ int st_cbrt_i(int x)
     prev=result;
     result=(2*result+x/(result*result))/3;
   } 
-  return result;
+  return (negative)? result*(-1):result;
 }
 
 st_real st_cbrt_r(st_real x) 
 {
   if (x==0.0) return 0.0;
+  int negative = x<0.0;
+  negative? x*(-1): x=x;
   int i=0;
   int maxiter=100;
   st_real result=x/3.0;
@@ -79,7 +95,7 @@ st_real st_cbrt_r(st_real x)
     prev=result;
     result=(2.0*result+x/(result*result))/3.0;
   }
-  return result;
+  return (negative)? result*(-1):result;
 }
 
 int st_fact_i(uint32_t x)
