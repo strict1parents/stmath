@@ -238,7 +238,7 @@ st_real st_radians(st_real x)
 
 st_real st_log2(st_real x)
 {
-  
+  return st_ln(x)/st_ln2;  
 }
 
 st_real st_ln(st_real x)
