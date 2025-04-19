@@ -91,9 +91,10 @@ int st_fact_i(uint32_t x)
 
 st_real st_fact_r(st_real x)
 {
-  if (x<0) return -1;
+  if (x<0) return 0.0;
   if (x==0) return 1.0;
-  if (x>   
+  if (x>171.6) return st_inf;
+  return st_gamma(x+1.0);
 }
 
 void st_round(st_real *x)
