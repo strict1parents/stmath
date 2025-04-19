@@ -89,10 +89,12 @@ int st_fact_i(uint32_t x)
   return result;
 }
 
-/*st_real st_fact_r(st_real x)
+st_real st_fact_r(st_real x)
 {
-   
-}*/
+  if (x<0) return -1;
+  if (x==0) return 1.0;
+  if (x>   
+}
 
 void st_round(st_real *x)
 {
@@ -176,3 +178,30 @@ st_real st_cpsign_r(st_real x, st_real y)
 {
   return (y<0.0)? x*(-1.0):x;
 }
+
+st_real st_gamma(st_real x)
+{
+  if (x<=0.0) return 0.0;
+  if (x>171.6) return st_inf;
+  
+  static const st_real p[] = {
+    676.5203681218851,
+    -1259.1392167224028,
+    771.32342877765313,
+    -176.61502916214059,
+    12.507343278686905,
+    -0.13857109526572012,
+    9.9843695780195716e-6,
+    1.5056327351493116e-7
+  };
+  
+  const int g =7;
+  st_real a = 0.99999999999980993;
+  for (int i=0; i<8; ++i) {
+    a+=p[i]/(x+i);
+  }
+  st_real t=x+g+0.5;
+  return st_sqrt(2.0*st_pi) * st_pow(t,x+0.5) * st_exp(-t) *a;
+
+}
+
