@@ -295,3 +295,8 @@ st_real st_clamp(st_real x, st_real min, st_real max)
   if (x>max) return max;
   return x;
 }
+
+st_real st_frac(st_real x)
+{
+  return x-(st_real)((int)(x));
+}
