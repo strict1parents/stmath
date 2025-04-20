@@ -288,3 +288,10 @@ st_real st_lgamma(st_real x)
   st_real t=x+G+0.5;
   return st_ln(st_sqrt(st_twoPI))+(x+0.5)*st_ln(t)-t+st_ln(a);
 }
+
+st_real st_clamp(st_real x, st_real min, st_real max)
+{
+  if (x<min) return min;
+  if (x>max) return max;
+  return x;
+}
