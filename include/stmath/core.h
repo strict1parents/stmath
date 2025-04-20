@@ -109,6 +109,7 @@ st_real                     st_log10(st_real x);
 st_real                     st_log(int base, st_real x);
 st_real                     st_lgamma(st_real x);
 st_real                     st_clamp(st_real x, st_real min, st_real max);
+st_real                     st_frac(st_real x);
 
 
 
