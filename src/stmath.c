@@ -276,3 +276,15 @@ st_real st_log(int base, st_real x)
 {
   return st_ln(x)/st_ln((st_real)base);
 }
+
+st_real st_lgamma(st_real x)
+{
+  if (x<=0.0) return -1.0;
+  x-=1.0;
+  st_real a = g_coeffs[0];
+  for (int i=0; i<G_COEFFS; ++i) {
+    a+=g_coeffs[i]/(x+i);
+  }
+  st_real t=x+G+0.5;
+  return st_ln(st_sqrt(st_twoPI))+(x+0.5)*st_ln(t)-t+st_ln(a);
+}
