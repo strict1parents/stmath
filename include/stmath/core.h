@@ -58,6 +58,10 @@ static inline bool st_is_even(int x)
   return (x%2==0);
 }
 
+static inline bool st_is_odd(int x)
+{
+  return (x%2==1);
+}
 
 #define st_pow(x,y) _Generic((x), \
       int: st_pow_i, \
