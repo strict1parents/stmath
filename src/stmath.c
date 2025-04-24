@@ -301,3 +301,18 @@ st_real st_frac(st_real x)
 {
   return x-(st_real)((int)(x));
 }
+
+void st_swap_i(int *x, int *y)
+{
+  int temp;
+  temp=*x;
+  *x=*y;
+  *y=temp;  
+}
+void st_swap_r(st_real *x, st_real *y)
+{
+  st_real temp;
+  temp=*x;
+  *x=*y;
+  *y=temp; 
+}
