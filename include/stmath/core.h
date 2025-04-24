@@ -63,6 +63,11 @@ static inline bool st_is_odd(int x)
   return (x%2==1);
 }
 
+static inline bool st_is_zero(st_real x)
+{
+  return x<st_epsilon;
+}
+
 #define st_pow(x,y) _Generic((x), \
       int: st_pow_i, \
       st_real:  st_pow_r, \
