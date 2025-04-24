@@ -9,6 +9,7 @@
   #define st_twoPI      2.0*st_pi
   #define st_ln2        0.6931472f
   #define st_ln10       2.30258509f
+  #define st_nan        (0.0f/0.0f)
   #define G 5.0f
   #define G_COEFFS 6
   static const st_real g_coeffs[G_COEFFS] = {
@@ -26,6 +27,7 @@
   #define st_twoPI      2.0*st_pi
   #define st_ln2        0.6931471805599453
   #define st_ln10       2.30258509299404568402
+  #define st_nan        (0.0/0.0)
   #define G 7.0
   #define G_COEFFS 9
   static const st_real g_coeffs[G_COEFFS] = {
