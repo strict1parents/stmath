@@ -98,6 +98,12 @@ static inline bool st_zero(st_real x)
       default: st_cpsign_r \
 )(x)
 
+#define st_swap(x,y) _Generic((x), \
+      int: st_swap_i, \
+      st_real: st_swap_r, \
+      default: st_swap_r \
+)(x)
+
 st_real                     st_pow_i(int base, int exp);
 st_real                     st_pow_r(st_real base, int exp);
 int                         st_sqrt_i(int x);
@@ -125,7 +131,8 @@ st_real                     st_log(int base, st_real x);
 st_real                     st_lgamma(st_real x);
 st_real                     st_clamp(st_real x, st_real min, st_real max);
 st_real                     st_frac(st_real x);
-void                        st_swap(st_real *x, st_real *y);
+void                        st_swap_i(int *x, int *y);
+void                        st_swap_r(st_real *x, st_real *y);
 
 
 
