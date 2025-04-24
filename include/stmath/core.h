@@ -125,6 +125,7 @@ st_real                     st_log(int base, st_real x);
 st_real                     st_lgamma(st_real x);
 st_real                     st_clamp(st_real x, st_real min, st_real max);
 st_real                     st_frac(st_real x);
+void                        st_swap(st_real *x, st_real *y);
 
 
 
