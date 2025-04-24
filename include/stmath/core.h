@@ -48,22 +48,22 @@ static inline bool st_inf(st_real x)
   return x==st_inf || x==-(st_inf);
 }
 
-static inline bool st_is_nan(st_real x)
+static inline bool st_nan(st_real x)
 {
   return x!=x;
 }
 
-static inline bool st_is_even(int x)
+static inline bool st_even(int x)
 {
   return (x%2==0);
 }
 
-static inline bool st_is_odd(int x)
+static inline bool st_odd(int x)
 {
   return (x%2==1);
 }
 
-static inline bool st_is_zero(st_real x)
+static inline bool st_zero(st_real x)
 {
   return x<st_epsilon;
 }
