@@ -316,3 +316,17 @@ void st_swap_r(st_real *x, st_real *y)
   *x=*y;
   *y=temp; 
 }
+
+st_real st_derivative_i(int (*func)(int), int x)
+{
+  if (!func) return st_nan;
+  st_real h = st_sqrt(st_epsilon);
+  return ((*func)((st_real)x+h)-(*func)((st_real)x-h))/(2*h);
+} 
+
+st_real st_derivative_r(st_real (*func)(st_real), st_real x)
+{
+  if (!func) return st_nan;
+  st_real h = st_sqrt(st_epsilon);
+  return ((*func)(x+h)-(*func)(x-h))/(2*h);
+}
