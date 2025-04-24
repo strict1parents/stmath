@@ -53,6 +53,12 @@ static inline bool st_is_nan(st_real x)
   return x!=x;
 }
 
+static inline bool st_is_even(int x)
+{
+  return (x%2==0);
+}
+
+
 #define st_pow(x,y) _Generic((x), \
       int: st_pow_i, \
       st_real:  st_pow_r, \
@@ -110,7 +116,6 @@ st_real                     st_log(int base, st_real x);
 st_real                     st_lgamma(st_real x);
 st_real                     st_clamp(st_real x, st_real min, st_real max);
 st_real                     st_frac(st_real x);
-int                         st_even(int x);
 
 
 
