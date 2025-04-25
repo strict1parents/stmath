@@ -190,6 +190,12 @@ st_real st_cot(st_real x)
   return 1.0/t;
 }
 
+st_real st_sec(st_real x)
+{
+  if(st_abs(st_cos(x))<st_epsilon) return st_nan;
+  return 1/st_cos(x);
+}
+
 int st_cpsign_i(int x, int y)
 {
   return (y<0)? x*(-1): x;
@@ -317,3 +323,5 @@ st_real st_derivative_r(st_real (*func)(st_real), st_real x)
   st_real h = st_sqrt(st_epsilon);
   return ((*func)(x+h)-(*func)(x-h))/(2*h);
 }
+
+
