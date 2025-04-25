@@ -25,7 +25,7 @@ st_real st_pow_r(st_real base, int exp)
 
 int st_sqrt_i(int x)
 {
-  if (x<=0) return 0;
+  if (x<=0) return st_nan;
   int i=0;
   int maxiter=100;
   int result=x/2;
@@ -39,7 +39,7 @@ int st_sqrt_i(int x)
 
 st_real st_sqrt_r(st_real x) 
 {
-  if (x <= 0) return -1.0;
+  if (x <= 0) return st_nan;
   int i=0;
   int maxiter=100;
   st_real result=x/2;
@@ -51,7 +51,7 @@ st_real st_sqrt_r(st_real x)
 
 st_real st_rt(st_real x, int power)
 {
-  if (x==0) return 0.0;
+  if (x==0) return st_nan;
   int negative = x<0.0;
   negative? x*(-1): x=x; 
   int i=0;
@@ -67,7 +67,7 @@ st_real st_rt(st_real x, int power)
 
 int st_cbrt_i(int x)
 {
-  if (x==0) return 0;
+  if (x==0) return st_nan;
   int negative = x<0;
   negative? x*(-1): x=x;
   int i=0;
@@ -83,7 +83,7 @@ int st_cbrt_i(int x)
 
 st_real st_cbrt_r(st_real x) 
 {
-  if (x==0.0) return 0.0;
+  if (x==0.0) return st_nan;
   int negative = x<0.0;
   negative? x*(-1): x=x;
   int i=0;
@@ -101,7 +101,7 @@ st_real st_cbrt_r(st_real x)
 int st_fact_i(uint32_t x)
 {
   if (x==0) return 1;
-  if x>12 return -1;
+  if x>12 return st_inf;
   uint32_t result=1;
   for (uint32_t i=x; i>0; --i) {
     result*=i;
@@ -111,7 +111,7 @@ int st_fact_i(uint32_t x)
 
 st_real st_fact_r(st_real x)
 {
-  if (x<0) return 0.0;
+  if (x<0) return st_nan;
   if (x==0) return 1.0;
   if (x>171.6) return st_inf;
   return st_gamma(x+1.0);
@@ -119,7 +119,7 @@ st_real st_fact_r(st_real x)
 
 void st_round(st_real *x)
 {
-  if !x return;
+  if !x return st_nan;
   *x=(st_real)((int)(*x+(*x>=0?0.5:-0.5)));
 }
 
@@ -202,21 +202,8 @@ st_real st_cpsign_r(st_real x, st_real y)
 
 st_real st_gamma(st_real x)
 {
-  if (x<=0.0) return 0.0;
+  if (x<=0.0) return st_nan;
   if (x>171.6) return st_inf;
-  
-  /*static const st_real p[] = {
-    676.5203681218851,
-    -1259.1392167224028,
-    771.32342877765313,
-    -176.61502916214059,
-    12.507343278686905,
-    -0.13857109526572012,
-    9.9843695780195716e-6,
-    1.5056327351493116e-7
-  };*/
-  
-  
   const int g =7;
   st_real a = 0.99999999999980993;
   for (int i=0; i<G_COEFFS; ++i) {
@@ -244,7 +231,7 @@ st_real st_log2(st_real x)
 
 st_real st_ln(st_real x)
 {
-  if (x<=0.0) return -1.0;
+  if (x<=0.0) return st_nan;
   if (x==1.0) return 0.0;
   if (x==st_e) return 1.0;
   int k=0;
@@ -280,7 +267,7 @@ st_real st_log(int base, st_real x)
 
 st_real st_lgamma(st_real x)
 {
-  if (x<=0.0) return -1.0;
+  if (x<=0.0) return st_nan;
   x-=1.0;
   st_real a = g_coeffs[0];
   for (int i=0; i<G_COEFFS; ++i) {
