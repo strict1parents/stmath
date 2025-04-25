@@ -43,12 +43,12 @@ static inline int st_mod(int a, int b)
   return (b==0)? 0:(a%b);
 }
 
-static inline bool st_inf(st_real x) 
+static inline bool st_is_inf(st_real x) 
 {
   return x==st_inf || x==-(st_inf);
 }
 
-static inline bool st_nan(st_real x)
+static inline bool st_is_nan(st_real x)
 {
   return x!=x;
 }
@@ -63,7 +63,7 @@ static inline bool st_odd(int x)
   return (x%2==1);
 }
 
-static inline bool st_zero(st_real x)
+static inline bool st_is_zero(st_real x)
 {
   return x<st_epsilon;
 }
