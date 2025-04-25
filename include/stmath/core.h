@@ -122,6 +122,12 @@ static inline bool st_is_zero(st_real x)
       default: st_is_finite_r \
 )(x)
 
+#define st_hypot(x,y) _Generic((x), \
+      int: st_hypot_i, \
+      st_real: st_hypot_r, \
+      default: st_hypot_r, \
+)(x,y)
+
 st_real                     st_pow_i(int base, int exp);
 st_real                     st_pow_r(st_real base, int exp);
 int                         st_sqrt_i(int x);
@@ -159,6 +165,8 @@ bool                        st_is_equal_i(int x, int y);
 bool                        st_is_equal_r(st_real x, st_real y);
 bool                        st_is_finite_i(int x);
 bool                        st_is_finite_r(st_real x);
+st_real                     st_hypot_i(int x, int y);
+st_real                     st_hypot_r(st_real x, st_real y);
 
 
 
