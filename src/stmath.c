@@ -365,3 +365,23 @@ st_real st_hypot_r(st_real x, st_real y)
   if (max==0.0) return 0.0;
   return max*st_sqrt(1.0+(min/max)*(min/max));
 }
+
+int st_max_i(int x, int y)
+{
+  return (x>y)? x:y;
+}
+
+st_real st_max_r(st_real x, st_real y)
+{
+  return (x>y)? x:y;
+}
+
+int st_min_i(int x, int y)
+{
+  return (x<y)? x:y;
+}
+
+st_real st_min_r(st_real x, st_real y)
+{
+  return (x<y)? x:y;
+}
