@@ -330,4 +330,12 @@ st_real st_derivative_r(st_real (*func)(st_real), st_real x)
   return ((*func)(x+h)-(*func)(x-h))/(2*h);
 }
 
+bool st_is_equal_i(int x, int y)
+{
+  return x==y;
+}
 
+bool st_is_equal_r(st_real x, st_real y)
+{
+  return st_abs(x-y)<st_epsilon;
+}
