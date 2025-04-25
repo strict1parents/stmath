@@ -127,6 +127,7 @@ st_real                     st_cos(st_real x);
 st_real                     st_tan(st_real x);
 st_real                     st_cot(st_real x);
 st_real                     st_sec(st_real x);
+st_real                     st_csc(st_real x);
 int                         st_cpsign_i(int x, int y);
 st_real                     st_cpsign_r(st_real x, st_real y);
 st_real                     st_gamma(st_real x);
