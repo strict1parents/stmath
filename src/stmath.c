@@ -196,6 +196,12 @@ st_real st_sec(st_real x)
   return 1/st_cos(x);
 }
 
+st_real st_csc(st_real x)
+{
+  if (st_abs(st_sin(x))<st_epsilon) return st_nan;
+  return 1/st_sin(x);
+}
+
 int st_cpsign_i(int x, int y)
 {
   return (y<0)? x*(-1): x;
