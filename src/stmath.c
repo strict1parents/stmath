@@ -339,3 +339,13 @@ bool st_is_equal_r(st_real x, st_real y)
 {
   return st_abs(x-y)<st_epsilon;
 }
+
+bool st_is_finite_i(int x)
+{
+  return x==x && x<st_inf && x>(-1)*st_inf;
+}
+
+bool st_is_finite_r(st_real x)
+{
+  return x==x && x<st_inf && x>(-1)*st_inf;
+}
