@@ -116,6 +116,12 @@ static inline bool st_is_zero(st_real x)
       default: st_is_equal_r \
 )(x,y)
 
+#define st_is_finite(x) _Generic((x), \
+      int: st_is_finite_i, \
+      st_real: st_is_finite_r, \
+      default: st_is_finite_r \
+)(x)
+
 st_real                     st_pow_i(int base, int exp);
 st_real                     st_pow_r(st_real base, int exp);
 int                         st_sqrt_i(int x);
@@ -151,6 +157,8 @@ st_real                     st_derivative_i(int (*func)(int), int x);
 st_real                     st_derivative_r(st_real (*func)(st_real), st_real x);
 bool                        st_is_equal_i(int x, int y);
 bool                        st_is_equal_r(st_real x, st_real y);
+bool                        st_is_finite_i(int x);
+bool                        st_is_finite_r(st_real x);
 
 
 
