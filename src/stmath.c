@@ -349,3 +349,19 @@ bool st_is_finite_r(st_real x)
 {
   return x==x && x<st_inf && x>(-1)*st_inf;
 }
+
+st_real st_hypot_i(int x, int y)
+{
+  st_real max=st_max(x, y);
+  st_real min=st_min(x,y);
+  if (max==0) return 0.0;
+  return max*st_sqrt(1.0+(min/max)*(min/max));
+}
+
+st_real st_hypot_r(st_real x, st_real y)
+{
+  st_real max=st_max(x,y);
+  st_real min=st_min(x,y);
+  if (max==0.0) return 0.0;
+  return max*st_sqrt(1.0+(min/max)*(min/max));
+}
