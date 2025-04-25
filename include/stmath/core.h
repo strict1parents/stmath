@@ -23,16 +23,6 @@ static inline st_real st_abs(st_real a)
   return (a<0)? -a:a;
 }
 
-static inline st_real st_min(st_real a, st_real b)
-{
-  return (a<b)? a:b;
-}
-
-static inline st_real st_max(st_real a, st_real b)
-{
-  return (a>b)? a:b;
-}
-
 static inline st_real st_sign(st_real x)
 {
   return (x<0) -1:(x==0)? 0:1;
@@ -128,6 +118,23 @@ static inline bool st_is_zero(st_real x)
       default: st_hypot_r, \
 )(x,y)
 
+#define st_max(x,y) _Generic((x), \
+      int: st_max_i, \
+      st_real: st_max_r, \
+      default: st_max_r \
+)(x,y)
+
+#define st_min(x,y) _Generic((x), \
+      int: st_min_i, \
+      st_real: st_min_r, \
+      default: st_min_r \
+)(x,y)
+
+
+int                         st_max_i(int x, int y);
+st_real                     st_max_r(st_real x, st_real);
+int                         st_min_i(int x, int y);
+st_real                     st_min_r(st_real x, st_real y);
 st_real                     st_pow_i(int base, int exp);
 st_real                     st_pow_r(st_real base, int exp);
 int                         st_sqrt_i(int x);
