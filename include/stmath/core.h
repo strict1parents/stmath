@@ -130,6 +130,12 @@ static inline bool st_is_zero(st_real x)
       default: st_min_r \
 )(x,y)
 
+#define st_sum(x) _Generic((x), \
+      int: st_sum_i, \
+      st_real: st_sum_r, \
+      default: st_sum_r \
+)(x)
+
 
 int                         st_max_i(int x, int y);
 st_real                     st_max_r(st_real x, st_real);
@@ -174,6 +180,9 @@ bool                        st_is_finite_i(int x);
 bool                        st_is_finite_r(st_real x);
 st_real                     st_hypot_i(int x, int y);
 st_real                     st_hypot_r(st_real x, st_real y);
+int                         st_sum_i(const int  *arr, size_t size);
+st_real                     st_sum_r(const st_real *arr, size_t size);
+
 
 
 
