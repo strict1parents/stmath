@@ -386,7 +386,7 @@ st_real st_min_r(st_real x, st_real y)
   return (x<y)? x:y;
 }
 
-int st_sum_i(const int *arr, size_t size)
+int st_sumarr_i(const int *arr, size_t size)
 {
   int result=0;
   for (int i=0; i<size; ++i) {
@@ -396,7 +396,7 @@ int st_sum_i(const int *arr, size_t size)
   return result;
 }
 
-st_real st_sum_r(const st_real *arr, size_t size)
+st_real st_sumarr_r(const st_real *arr, size_t size)
 {
   st_real result=0;
   for (int i=0; i<size; ++i) {
