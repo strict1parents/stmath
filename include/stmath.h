@@ -1,7 +1,9 @@
 #ifndef STMATH_H
 #define STMATH_H
 
-#include "core.h"
-#include "consts.h"
+#pragma once 
+
+#include "stmath/core.h"
+#include "stmath/consts.h"
 
 #endif
