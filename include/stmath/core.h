@@ -182,7 +182,7 @@ st_real                     st_hypot_i(int x, int y);
 st_real                     st_hypot_r(st_real x, st_real y);
 int                         st_sumarr_i(const int  *arr, size_t size);
 st_real                     st_sumarr_r(const st_real *arr, size_t size);
-
+st_real                     st_dist(st_real x1, st_real y1, st_real x2, st_real y2);
 
 
 
