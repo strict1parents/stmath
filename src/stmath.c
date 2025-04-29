@@ -405,3 +405,8 @@ st_real st_sumarr_r(const st_real *arr, size_t size)
   }
   return result;
 }
+
+st_real st_dist(st_real x1, st_real y1, st_real x2, st_real y2)
+{
+  return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+}
