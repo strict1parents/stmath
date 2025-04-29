@@ -8,7 +8,7 @@ include_directories(include)
 
 add_library(stmath STATIC src/stmath.c)
 
-add_executable(example examples/main.c)
+add_executable(example examples/base.c)
 target_link_libraries(examples stmath)
 
 install(TARGETS stmath ARCHIVE DESTINATION lib)
