@@ -49,11 +49,6 @@ static inline st_real st_sign(st_real x)
   return (x<0) -1:(x==0)? 0:1;
 }
 
-static inline int st_mod(int a, int b)
-{
-  return (b==0)? 0:(a%b);
-}
-
 static inline bool st_is_inf(st_real x) 
 {
   return x==st_inf || x==-(st_inf);
