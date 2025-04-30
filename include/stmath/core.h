@@ -30,7 +30,7 @@ static inline st_real st_abs(st_real a)
 
 static inline st_real st_sign(st_real x)
 {
-  return (x<0) -1:((x==0)? 0:1);
+  return (x<0)? -1:((x==0)? 0:1);
 }
 
 static inline bool st_is_inf(st_real x) 
