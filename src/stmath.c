@@ -1,6 +1,6 @@
 #include "stmath.h"
 
-
+/*
 st_real st_pow_i(int base, int exp)
 {
   if (exp==0) return 1;
@@ -10,9 +10,9 @@ st_real st_pow_i(int base, int exp)
   }
   return (exp<0)? 1/result: result;
 }
+*/
 
-
-st_real st_pow_r(st_real base, int exp)
+st_real st_pow(st_real base, int exp)
 {
   if (exp==0) return 1.0; 
   st_real result=1.0;
@@ -22,7 +22,7 @@ st_real st_pow_r(st_real base, int exp)
   return (exp<0)? 1/result:result; 
 }
 
-
+/*
 int st_sqrt_i(int x)
 {
   if (x<=0) return st_nan;
@@ -36,8 +36,8 @@ int st_sqrt_i(int x)
   }
   return result;
 }
-
-st_real st_sqrt_r(st_real x) 
+*/
+st_real st_sqrt(st_real x) 
 {
   if (x <= 0) return st_nan;
   int i=0;
@@ -64,7 +64,7 @@ st_real st_rt(st_real x, int power)
   if (negative && power%2==1) result*=-1;
   return result;
 }
-
+/*
 int st_cbrt_i(int x)
 {
   if (x==0) return st_nan;
@@ -80,8 +80,8 @@ int st_cbrt_i(int x)
   } 
   return (negative)? result*(-1):result;
 }
-
-st_real st_cbrt_r(st_real x) 
+*/
+st_real st_cbrt(st_real x) 
 {
   if (x==0.0) return st_nan;
   int negative = x<0.0;
@@ -97,7 +97,7 @@ st_real st_cbrt_r(st_real x)
   }
   return (negative)? result*(-1):result;
 }
-
+/*
 int st_fact_i(uint32_t x)
 {
   if (x==0) return 1;
@@ -108,8 +108,8 @@ int st_fact_i(uint32_t x)
   }
   return result;
 }
-
-st_real st_fact_r(st_real x)
+*/
+st_real st_fact(st_real x)
 {
   if (x<0) return st_nan;
   if (x==0) return 1.0;
@@ -202,7 +202,7 @@ st_real st_csc(st_real x)
   return 1/st_sin(x);
 }
 
-int st_cpsign_i(int x, int y)
+/*int st_cpsign_i(int x, int y)
 {
   return (y<0)? x*(-1): x;
 }
@@ -211,7 +211,7 @@ st_real st_cpsign_r(st_real x, st_real y)
 {
   return (y<0.0)? x*(-1.0):x;
 }
-
+*/
 st_real st_gamma(st_real x)
 {
   if (x<=0.0) return st_nan;
@@ -300,7 +300,7 @@ st_real st_frac(st_real x)
 {
   return x-(st_real)((int)(x));
 }
-
+/*
 void st_swap_i(int *x, int *y)
 {
   int temp;
@@ -308,48 +308,49 @@ void st_swap_i(int *x, int *y)
   *x=*y;
   *y=temp;  
 }
-void st_swap_r(st_real *x, st_real *y)
+*/
+void st_swap(st_real *x, st_real *y)
 {
   st_real temp;
   temp=*x;
   *x=*y;
   *y=temp; 
 }
-
+/*
 st_real st_derivative_i(int (*func)(int), int x)
 {
   if (!func) return st_nan;
   st_real h = st_sqrt(st_epsilon);
   return ((*func)((st_real)x+h)-(*func)((st_real)x-h))/(2*h);
 } 
-
-st_real st_derivative_r(st_real (*func)(st_real), st_real x)
+*/
+st_real st_derivative(st_real (*func)(st_real), st_real x)
 {
   if (!func) return st_nan;
   st_real h = st_sqrt(st_epsilon);
   return ((*func)(x+h)-(*func)(x-h))/(2*h);
 }
-
+/*
 bool st_is_equal_i(int x, int y)
 {
   return x==y;
 }
-
-bool st_is_equal_r(st_real x, st_real y)
+*/
+bool st_is_equal(st_real x, st_real y)
 {
   return st_abs(x-y)<st_epsilon;
 }
 
-bool st_is_finite_i(int x)
+/*bool st_is_finite_i(int x)
 {
   return x==x && x<st_inf && x>(-1)*st_inf;
 }
-
-bool st_is_finite_r(st_real x)
+*/
+bool st_is_finite(st_real x)
 {
   return x==x && x<st_inf && x>(-1)*st_inf;
 }
-
+/*
 st_real st_hypot_i(int x, int y)
 {
   st_real max=st_max(x, y);
@@ -357,8 +358,8 @@ st_real st_hypot_i(int x, int y)
   if (max==0) return 0.0;
   return max*st_sqrt(1.0+(min/max)*(min/max));
 }
-
-st_real st_hypot_r(st_real x, st_real y)
+*/
+st_real st_hypot(st_real x, st_real y)
 {
   st_real max=st_max(x,y);
   st_real min=st_min(x,y);
@@ -366,27 +367,7 @@ st_real st_hypot_r(st_real x, st_real y)
   return max*st_sqrt(1.0+(min/max)*(min/max));
 }
 
-int st_max_i(int x, int y)
-{
-  return (x>y)? x:y;
-}
-
-st_real st_max_r(st_real x, st_real y)
-{
-  return (x>y)? x:y;
-}
-
-int st_min_i(int x, int y)
-{
-  return (x<y)? x:y;
-}
-
-st_real st_min_r(st_real x, st_real y)
-{
-  return (x<y)? x:y;
-}
-
-int st_sumarr_i(const int *arr, size_t size)
+/*int st_sumarr_i(const int *arr, size_t size)
 {
   int result=0;
   for (int i=0; i<size; ++i) {
@@ -395,8 +376,8 @@ int st_sumarr_i(const int *arr, size_t size)
   }
   return result;
 }
-
-st_real st_sumarr_r(const st_real *arr, size_t size)
+*/
+st_real st_sumarr(const st_real *arr, size_t size)
 {
   st_real result=0;
   for (int i=0; i<size; ++i) {
