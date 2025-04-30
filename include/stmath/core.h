@@ -3,38 +3,22 @@
 
 
 #include "consts.h"
+#include <stdbool.h>
+#include <stddef.h>
 
 
 #ifdef __cplusplus
   extern "C" {
 #endif
 
-#ifdef ST_MATH_USE_FLOAT 
-  typedef float st_real;
-#else
-  typedef double st_real;
-#endif
-
-typedef unsigned int uint32_t
 
 
-
-static inline int st_max_i(int x, int y)
+static inline st_real st_max(st_real x, st_real y)
 {
 	return (x>y)? x:y;
 }
 
-static inline st_real st_max_r(st_real x, st_real y)
-{
-	return (x>y)? x:y;
-}
-
-static inline int st_min_i(int x, int y)
-{
-	return (x<y)? x:y;
-}
-
-static inline st_real st_min_r(st_real x, st_real y)
+static inline st_real st_min(st_real x, st_real y)
 {
 	return (x<y)? x:y;
 }
@@ -46,7 +30,7 @@ static inline st_real st_abs(st_real a)
 
 static inline st_real st_sign(st_real x)
 {
-  return (x<0) -1:(x==0)? 0:1;
+  return (x<0) -1:((x==0)? 0:1);
 }
 
 static inline bool st_is_inf(st_real x) 
@@ -88,19 +72,6 @@ static inline bool st_is_finite(st_real x)
 {
 	return x==x && x<st_inf && x>(-1)*st_inf;
 }
-
-
-#define st_max(x,y) _Generic((x), \
-      int: st_max_i, \
-      st_real: st_max_r, \
-      default: st_max_r \
-)(x,y)
-
-#define st_min(x,y) _Generic((x), \
-      int: st_min_i, \
-      st_real: st_min_r, \
-      default: st_min_r \
-)(x,y)
 
 
 st_real                     st_pow(st_real base, int exp);
