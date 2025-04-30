@@ -18,9 +18,35 @@
 typedef unsigned int uint32_t
 
 
-static inline st_real st_abs(st_real a) 
+
+static inline int st_max_i(int x, int y)
 {
-  return (a<0)? -a:a;
+	return (x>y)? x:y;
+}
+
+static inline st_real st_max_r(st_real x, st_real y)
+{
+	return (x>y)? x:y;
+}
+
+static inline int st_min_i(int x, int y)
+{
+	return (x<y)? x:y;
+}
+
+static inline st_real st_min_r(st_real x, st_real y)
+{
+	return (x<y)? x:y;
+}
+
+static inline int st_abs_i(int x)
+{
+	return (x<0)? -x:x;
+}
+
+static inline st_real st_abs_r(st_real a) 
+{
+  return (a<0.0)? -a:a;
 }
 
 static inline st_real st_sign(st_real x)
@@ -57,8 +83,18 @@ static inline bool st_is_zero(st_real x)
 {
   return x<st_epsilon;
 }
+/*
+static inline int st_cpsign_i(int x, int y)
+{
+	return (y<0)? x*(-1):x;
+}
+*/
+static inline st_real st_cpsign(st_real x, st_real y)
+{
+	return (y<0.0)? x*(-1.0):x;
+}
 
-#define st_pow(x,y) _Generic((x), \
+/*#define st_pow(x,y) _Generic((x), \
       int: st_pow_i, \
       st_real:  st_pow_r, \
       default: st_pow_r \
@@ -116,7 +152,7 @@ static inline bool st_is_zero(st_real x)
       int: st_hypot_i, \
       st_real: st_hypot_r, \
       default: st_hypot_r, \
-)(x,y)
+)(x,y)*/
 
 #define st_max(x,y) _Generic((x), \
       int: st_max_i, \
@@ -129,37 +165,35 @@ static inline bool st_is_zero(st_real x)
       st_real: st_min_r, \
       default: st_min_r \
 )(x,y)
-
+/*
 #define st_sumarr(x) _Generic((x), \
       int: st_sumarr_i, \
       st_real: st_sumarr_r, \
       default: st_sumarr_r \
 )(x)
-
+*/
 
 int                         st_max_i(int x, int y);
 st_real                     st_max_r(st_real x, st_real);
 int                         st_min_i(int x, int y);
 st_real                     st_min_r(st_real x, st_real y);
-st_real                     st_pow_i(int base, int exp);
-st_real                     st_pow_r(st_real base, int exp);
-int                         st_sqrt_i(int x);
-st_real                     st_sqrt_r(st_real x);
+//st_real                     st_pow_i(int base, int exp);
+st_real                     st_pow(st_real base, int exp);
+//int                         st_sqrt_i(int x);
+st_real                     st_sqrt(st_real x);
 st_real                     st_rt(st_real x, int power);
-int                         st_fact_i(uint32_t x);
-st_real                     st_fact_r(st_real x);
+//int                         st_fact_i(uint32_t x);
+st_real                     st_fact(st_real x);
 void                        st_round(st_real *x);
 st_real                     st_exp(int x);
-int                         st_cbrt_i(int x);
-st_real                     st_cbrt_r(st_real x);
+//int                         st_cbrt_i(int x);
+st_real                     st_cbrt(st_real x);
 st_real                     st_sin(st_real x);
 st_real                     st_cos(st_real x);
 st_real                     st_tan(st_real x);
 st_real                     st_cot(st_real x);
 st_real                     st_sec(st_real x);
 st_real                     st_csc(st_real x);
-int                         st_cpsign_i(int x, int y);
-st_real                     st_cpsign_r(st_real x, st_real y);
 st_real                     st_gamma(st_real x);
 st_real                     st_degrees(st_real x);
 st_real                     st_radians(st_real x);
@@ -170,19 +204,20 @@ st_real                     st_log(int base, st_real x);
 st_real                     st_lgamma(st_real x);
 st_real                     st_clamp(st_real x, st_real min, st_real max);
 st_real                     st_frac(st_real x);
-void                        st_swap_i(int *x, int *y);
-void                        st_swap_r(st_real *x, st_real *y);
-st_real                     st_derivative_i(int (*func)(int), int x);
-st_real                     st_derivative_r(st_real (*func)(st_real), st_real x);
-bool                        st_is_equal_i(int x, int y);
-bool                        st_is_equal_r(st_real x, st_real y);
-bool                        st_is_finite_i(int x);
-bool                        st_is_finite_r(st_real x);
-st_real                     st_hypot_i(int x, int y);
-st_real                     st_hypot_r(st_real x, st_real y);
-int                         st_sumarr_i(const int  *arr, size_t size);
-st_real                     st_sumarr_r(const st_real *arr, size_t size);
+//void                        st_swap_i(int *x, int *y);
+void                        st_swap(st_real *x, st_real *y);
+//st_real                     st_derivative_i(int (*func)(int), int x);
+st_real                     st_derivative(st_real (*func)(st_real), st_real x);
+//bool                        st_is_equal_i(int x, int y);
+bool                        st_is_equal(st_real x, st_real y);
+//bool                        st_is_finite_i(int x);
+bool                        st_is_finite(st_real x);
+//st_real                     st_hypot_i(int x, int y);
+st_real                     st_hypot(st_real x, st_real y);
+//int                         st_sumarr_i(const int  *arr, size_t size);
+st_real                     st_sumarr(const st_real *arr, size_t size);
 st_real                     st_dist(st_real x1, st_real y1, st_real x2, st_real y2);
+
 
 
 
