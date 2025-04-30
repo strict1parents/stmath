@@ -28,13 +28,15 @@ st_real st_rt(st_real x, int power)
 {
   if (x==0) return st_nan;
   int negative = x<0.0;
-  negative? x*(-1): x=x; 
+	if (negative) {
+		x*=(-1);
+	}
   int i=0;
   int maxiter=100;
   st_real result=x/power;
   if (st_abs(result)<st_epsilon)  result=1.0;
   while (st_abs(st_pow(result,power)-x)>st_epsilon && i++<maxiter) {
-    result=(1/power)*((power-1)*result+(x/st_pow(result,power-1))/power;
+    result=((power-1)*result+x/st_pow(result,power-1))/power;
   }
   if (negative && power%2==1) result*=-1;
   return result;
@@ -44,7 +46,9 @@ st_real st_cbrt(st_real x)
 {
   if (x==0.0) return st_nan;
   int negative = x<0.0;
-  negative? x*(-1): x=x;
+	if (negative) {
+		x*=(-1);
+	}
   int i=0;
   int maxiter=100;
   st_real result=x/3.0;
@@ -67,7 +71,7 @@ st_real st_fact(st_real x)
 
 void st_round(st_real *x)
 {
-  if !x return st_nan;
+  if (!x) return st_nan;
   *x=(st_real)((int)(*x+(*x>=0?0.5:-0.5)));
 }
 
@@ -197,7 +201,7 @@ st_real st_ln(st_real x)
   st_real result=0.0;
   st_real t2=t*t;
   for (int i=1; i<30; i+=2) {
-    result+=t/n;
+    result+=t/i;
     t*=t2; 
   } 
   result*=2;
@@ -274,5 +278,5 @@ st_real st_sumarr(const st_real *arr, size_t size)
 
 st_real st_dist(st_real x1, st_real y1, st_real x2, st_real y2)
 {
-  return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+  return st_sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 }
