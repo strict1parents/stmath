@@ -1,16 +1,6 @@
 #include "stmath.h"
 
-/*
-st_real st_pow_i(int base, int exp)
-{
-  if (exp==0) return 1;
-  st_real result = 1;
-  for (int i=0; i<st_abs(exp); ++i) {
-    result*=base;
-  }
-  return (exp<0)? 1/result: result;
-}
-*/
+
 
 st_real st_pow(st_real base, int exp)
 {
@@ -22,21 +12,6 @@ st_real st_pow(st_real base, int exp)
   return (exp<0)? 1/result:result; 
 }
 
-/*
-int st_sqrt_i(int x)
-{
-  if (x<=0) return st_nan;
-  int i=0;
-  int maxiter=100;
-  int result=x/2;
-  int prev=0;
-  while (result!=prev && i++<maxiter) {
-    prev=result;
-    result=(result+x/result)/2;
-  }
-  return result;
-}
-*/
 st_real st_sqrt(st_real x) 
 {
   if (x <= 0) return st_nan;
@@ -64,23 +39,7 @@ st_real st_rt(st_real x, int power)
   if (negative && power%2==1) result*=-1;
   return result;
 }
-/*
-int st_cbrt_i(int x)
-{
-  if (x==0) return st_nan;
-  int negative = x<0;
-  negative? x*(-1): x=x;
-  int i=0;
-  int maxiter=100;
-  int prev=0;
-  int result=x/3;
-  while (result!=prev && i++<maxiter) {
-    prev=result;
-    result=(2*result+x/(result*result))/3;
-  } 
-  return (negative)? result*(-1):result;
-}
-*/
+
 st_real st_cbrt(st_real x) 
 {
   if (x==0.0) return st_nan;
@@ -97,18 +56,7 @@ st_real st_cbrt(st_real x)
   }
   return (negative)? result*(-1):result;
 }
-/*
-int st_fact_i(uint32_t x)
-{
-  if (x==0) return 1;
-  if x>12 return st_inf;
-  uint32_t result=1;
-  for (uint32_t i=x; i>0; --i) {
-    result*=i;
-  }
-  return result;
-}
-*/
+
 st_real st_fact(st_real x)
 {
   if (x<0) return st_nan;
@@ -202,16 +150,6 @@ st_real st_csc(st_real x)
   return 1/st_sin(x);
 }
 
-/*int st_cpsign_i(int x, int y)
-{
-  return (y<0)? x*(-1): x;
-}
-
-st_real st_cpsign_r(st_real x, st_real y)
-{
-  return (y<0.0)? x*(-1.0):x;
-}
-*/
 st_real st_gamma(st_real x)
 {
   if (x<=0.0) return st_nan;
@@ -300,15 +238,7 @@ st_real st_frac(st_real x)
 {
   return x-(st_real)((int)(x));
 }
-/*
-void st_swap_i(int *x, int *y)
-{
-  int temp;
-  temp=*x;
-  *x=*y;
-  *y=temp;  
-}
-*/
+
 void st_swap(st_real *x, st_real *y)
 {
   st_real temp;
@@ -316,49 +246,14 @@ void st_swap(st_real *x, st_real *y)
   *x=*y;
   *y=temp; 
 }
-/*
-st_real st_derivative_i(int (*func)(int), int x)
-{
-  if (!func) return st_nan;
-  st_real h = st_sqrt(st_epsilon);
-  return ((*func)((st_real)x+h)-(*func)((st_real)x-h))/(2*h);
-} 
-*/
+
 st_real st_derivative(st_real (*func)(st_real), st_real x)
 {
   if (!func) return st_nan;
   st_real h = st_sqrt(st_epsilon);
   return ((*func)(x+h)-(*func)(x-h))/(2*h);
 }
-/*
-bool st_is_equal_i(int x, int y)
-{
-  return x==y;
-}
-*/
-bool st_is_equal(st_real x, st_real y)
-{
-  return st_abs(x-y)<st_epsilon;
-}
 
-/*bool st_is_finite_i(int x)
-{
-  return x==x && x<st_inf && x>(-1)*st_inf;
-}
-*/
-bool st_is_finite(st_real x)
-{
-  return x==x && x<st_inf && x>(-1)*st_inf;
-}
-/*
-st_real st_hypot_i(int x, int y)
-{
-  st_real max=st_max(x, y);
-  st_real min=st_min(x,y);
-  if (max==0) return 0.0;
-  return max*st_sqrt(1.0+(min/max)*(min/max));
-}
-*/
 st_real st_hypot(st_real x, st_real y)
 {
   st_real max=st_max(x,y);
@@ -367,16 +262,6 @@ st_real st_hypot(st_real x, st_real y)
   return max*st_sqrt(1.0+(min/max)*(min/max));
 }
 
-/*int st_sumarr_i(const int *arr, size_t size)
-{
-  int result=0;
-  for (int i=0; i<size; ++i) {
-    result+=*arr;
-    arr++;
-  }
-  return result;
-}
-*/
 st_real st_sumarr(const st_real *arr, size_t size)
 {
   st_real result=0;
