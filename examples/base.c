@@ -37,5 +37,14 @@ int main()
 	printf("Use of st_is_equal: %d\n", st_is_equal(5.0,5.0));
 //			Example of st_is_finite
 	printf("Use of st_is_finite: %d\n", st_is_finite(st_inf));
+//			Example of st_add_comp
+	st_complex A1;
+	st_complex B1;
+	A1.real=5;
+	A1.img=1;
+	B1.real=10;
+	B1.img=1;
+	st_add_comp(&A1,&B1);
+	printf("The real part after: %lf\n and imaganary part after: %lf\n",A1.real, A1.img);
 	return 0;
 }
