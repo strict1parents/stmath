@@ -71,7 +71,7 @@ st_real st_fact(st_real x)
 
 void st_round(st_real *x)
 {
-  if (!x) return st_nan;
+  if (!x) return;
   *x=(st_real)((int)(*x+(*x>=0?0.5:-0.5)));
 }
 
@@ -279,4 +279,10 @@ st_real st_sumarr(const st_real *arr, size_t size)
 st_real st_dist(st_real x1, st_real y1, st_real x2, st_real y2)
 {
   return st_sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+}
+
+void st_add_comp(struct st_complex *A, struct st_complex *B)
+{
+	A->real=A->real+B->real;
+	A->img=A->img+B->img;
 }
