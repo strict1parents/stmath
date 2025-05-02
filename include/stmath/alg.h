@@ -14,6 +14,7 @@ typedef struct st_complex {
 } st_complex; 
 
 
+void st_add_comp(struct st_complex *A, struct st_complex *B);
 
 
 #ifdef __cplusplus
