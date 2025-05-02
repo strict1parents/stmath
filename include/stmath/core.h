@@ -13,13 +13,7 @@
 
 
 
-
-static inline int st_max_i(int x, int y)
-{
-	return (x>y)? x:y;
-}
-
-static inline st_real st_max_r(st_real x, st_real y)
+static inline st_real st_max(st_real x, st_real y)
 {
 	return (x>y)? x:y;
 }
