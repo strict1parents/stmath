@@ -13,7 +13,13 @@
 
 
 
-static inline st_real st_max(st_real x, st_real y)
+
+static inline int st_max_i(int x, int y)
+{
+	return (x>y)? x:y;
+}
+
+static inline st_real st_max_r(st_real x, st_real y)
 {
 	return (x>y)? x:y;
 }
@@ -58,9 +64,9 @@ static inline bool st_is_zero(st_real x)
   return x<st_epsilon;
 }
 
-static inline st_real st_cpsign(st_real x, st_real y)
+static inline st_real st_cpsign(st_real *x, st_real y)
 {
-	return (y<0.0)? x*(-1.0):x;
+	return (y<0.0)? (*x)*(-1.0):*x;
 }
 
 static inline bool st_is_equal(st_real x, st_real y)
