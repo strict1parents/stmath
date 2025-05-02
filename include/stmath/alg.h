@@ -8,9 +8,10 @@
 	extern "C" {
 #endif
 
-
-
-
+typedef struct st_complex { 
+	st_real real;
+	st_real img;	
+} st_complex; 
 
 
 
