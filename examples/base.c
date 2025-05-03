@@ -45,6 +45,15 @@ int main()
 	B1.real=10;
 	B1.img=1;
 	st_add_comp(&A1,&B1);
-	printf("The real part after: %lf\n and imaganary part after: %lf\n",A1.real, A1.img);
+	printf("The real part after: %lf\nand imaganary part after: %lf\n",A1.real, A1.img);
+//			Example of st_mult_comp
+	st_complex T1;
+	st_complex T2;
+	T1.real=5;
+	T1.img=1;
+	T2.real=10;
+	T2.img=1;
+	st_mult_comp(&T1,&T2);
+	printf("The real part after: %lf\nand imaganary part after: %lf\n", T1.real, T1.img);
 	return 0;
 }
