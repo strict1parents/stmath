@@ -24,4 +24,4 @@ The project includes custom implementations of several mathematical functions, s
 - Numeric type: `st_real` (user-defined, typically `float` or `double`)
 - Compiler tested: **GCC 15.1.1**
 
-##Trash project ass always :)
+## Trash project ass always :)
