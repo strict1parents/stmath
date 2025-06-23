@@ -294,3 +294,9 @@ void st_mult_comp(struct st_complex *A, const struct st_complex *B)
 	A->real=(a*B->real)-(b*B->img);
 	A->img=(a*B->img)+(b*B->real);
 }
+
+st_real st_abs_comp(const struct st_complex *A) 
+{
+	if (!A) return 0;
+	return st_sqrt((A->real)*(A->real)+(A->img)*(A->img));
+}
