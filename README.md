@@ -4,7 +4,7 @@
 This project was created purely for fun and curiosity, with no goal at all. It is not intended to be taken seriously or used in production.
 
 <p align="center">
-  <img src="https://tenor.com/mDqPmkLMl4J.gif" width=500 alt="GIF">
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWNmbXJhNmt4dGlodDY3ejRyaTZxMXNsMnh2b3Z4NDd2eTB5eHB2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btMCltyDvSgF92E/giphy.gif" width=500 alt="GIF">
 </p>
 
 
